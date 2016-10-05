@@ -1,0 +1,12 @@
+R01
+Taladro
+300
+unidad
+R02
+Chofer
+500
+unidad
+R03
+Martillo
+600
+unidad

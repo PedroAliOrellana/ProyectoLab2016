@@ -1,0 +1,8 @@
+01
+Alquiler de Herramientas
+02
+Alquiler de Maquinaria
+03
+Personal Transporte
+04
+Personal de Trabajo
