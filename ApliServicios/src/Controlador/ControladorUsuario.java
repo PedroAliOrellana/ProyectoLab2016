@@ -9,7 +9,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.w3c.dom.events.EventTarget;
+import org.w3c.dom.events.MouseEvent;
+import org.w3c.dom.views.AbstractView;
 
 public class ControladorUsuario implements ActionListener,KeyListener
 {
@@ -64,6 +69,19 @@ public class ControladorUsuario implements ActionListener,KeyListener
               }
        }
       );    
+          
+      formUsuario.getTUsuario().addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            int row = formUsuario.getTUsuario().rowAtPoint(evt.getPoint());
+            int col = formUsuario.getTUsuario().columnAtPoint(evt.getPoint());
+            if (row >= 0 && col >= 0) 
+            {
+                JOptionPane.showMessageDialog(null, formUsuario.getTUsuario().getValueAt(row, col));
+
+            }
+    }
+});
         
     }
     
@@ -74,7 +92,7 @@ public class ControladorUsuario implements ActionListener,KeyListener
         
         Usuario us=new Usuario();
         int Fila=formUsuario.getTUsuario().getSelectedRow();
-        
+        System.out.print(Fila);
         if(Fila==-1)
         {
             formUsuario.getBtnActualizarCont().setVisible(false);
@@ -87,7 +105,7 @@ public class ControladorUsuario implements ActionListener,KeyListener
             formUsuario.getBtnModificar().setVisible(true);
             formUsuario.getBtnModificar().setVisible(true);
             
-            formUsuario.getM();
+            //formUsuario.getM();
             formUsuario.getTUsuario().getModel();
             
             formGU.getTxtNombreUsuario().setText(formUsuario.getTUsuario().getValueAt(Fila, 0).toString());
@@ -164,7 +182,7 @@ public class ControladorUsuario implements ActionListener,KeyListener
     public void keyReleased(KeyEvent ke) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
+
+   
+     
 }

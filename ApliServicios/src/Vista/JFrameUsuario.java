@@ -7,6 +7,7 @@ package Vista;
 
 import Controlador.ControladorUsuario;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -253,9 +254,10 @@ public class JFrameUsuario extends javax.swing.JFrame {
         this.btnRegresar.addActionListener(accion);
         this.btnBuscar.addActionListener(accion);
         this.btnActualizarCont.addActionListener(accion);
+        
+        this.txtBuscar.addActionListener(accion);
+        
+        
 }
 
-    public DefaultTableModel getM() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
  }
