@@ -324,6 +324,7 @@ public class ControladorEmpleado implements ActionListener,KeyListener
             formEmpleado.getCmbNacionalidad().setEnabled(false);
             formEmpleado.getTxtCedula().setEditable(false);
             formEmpleado.getBtnModificar().setEnabled(false);
+            //nuevo PULL
         }
         if(ae.getSource().equals(formEmpleado.getBtnGrabar()))
         {
