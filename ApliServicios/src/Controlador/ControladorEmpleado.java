@@ -3,7 +3,6 @@ package Controlador;
 
 import Librerias.Validaciones;
 import Vista.JFrameEmpleado;
-import Vista.JFrameRecurso;
 import Modelo.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -254,6 +253,7 @@ public class ControladorEmpleado implements ActionListener,KeyListener
                 ListaEmpleado.getListaEmpleado().add(emp);
                 JOptionPane.showMessageDialog(null,"Empleado Guardado Correctamente","Datos almacenados",JOptionPane.OK_OPTION+JOptionPane.INFORMATION_MESSAGE);
                 DeshabilitarControles();
+     
                 Limpiar();              
             }
             else
@@ -272,7 +272,22 @@ public class ControladorEmpleado implements ActionListener,KeyListener
             }
         }        
     }
-
+    
+    //-----------Eliminar-----------------------
+    
+    private void Eliminar()
+    {
+        int resp,posi;
+        resp = JOptionPane.showConfirmDialog(null, "¿Desea Eliminar al empleado: " + formEmpleado.getTxtNombre().getText()+"?","Eliminar",JOptionPane.YES_NO_OPTION);
+        if(resp==0)
+        {               
+            posi = ListaEmpleado.BuscarEmpleado(formEmpleado.getTxtCedula().getText());
+            ListaEmpleado.getListaEmpleado().remove(posi);
+            Limpiar();
+            JOptionPane.showMessageDialog(null, "Emleado eliminado");
+            DeshabilitarControles();            
+        }
+    }    
     //-----------Validaciones---------------------
     
     private void ValidarTxt(KeyEvent e,int largo,String txt) 
@@ -313,6 +328,15 @@ public class ControladorEmpleado implements ActionListener,KeyListener
         if(ae.getSource().equals(formEmpleado.getBtnGrabar()))
         {
             Grabar();
+        }
+        if(ae.getSource().equals(formEmpleado.getBtnEliminar()))
+        {
+            Eliminar();
+        }
+        if(ae.getSource().equals(formEmpleado.getBtnRegresar()))
+        {
+            new ControladorMenuPrin();
+            formEmpleado.setVisible(false);
         }
     }
 

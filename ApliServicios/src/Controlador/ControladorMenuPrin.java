@@ -59,6 +59,7 @@ public class ControladorMenuPrin implements ActionListener
        if(e.getSource().equals(formMenuPrin.getjMenuItemEmpleado()))
       {
           new ControladorEmpleado(lisEmpreServicios);
+          formMenuPrin.setVisible(false);
       }
        if(e.getSource().equals(formMenuPrin.getjMenuItemUsuario()))
       {
