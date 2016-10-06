@@ -17,7 +17,7 @@ public class ControladorHerramienta
     {
        ListaHerramienta= listHer;
         formHerramienta = new JFrameHerramienta();
-        formHerramienta.agregarListener((ActionListener) this);
+        formHerramienta.agregarListener(this);
         formHerramienta.setVisible(true);
         //DeshabilitarControles();
     }
