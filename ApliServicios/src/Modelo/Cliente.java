@@ -8,21 +8,33 @@ public class Cliente
     private String razonSocial;
     private String telefono;
     private String direccion;
+    private String correo;
     
-    public Cliente(String rif, String razonSocial, String telefono, String direccion) 
+    public Cliente(String rif, String razonSocial, String telefono, String direccion,String correo) 
     {
         this.rif = rif;
         this.razonSocial = razonSocial;
+         this.direccion = direccion;
         this.telefono = telefono;
-        this.direccion = direccion;
+        this.correo= correo;
+                
     }
     
   public Cliente() 
     {
         rif = "";
         razonSocial = "";
-        telefono = "";
         direccion = "";
+        telefono = "";
+        correo="";
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
     public String getRif() 
     {
