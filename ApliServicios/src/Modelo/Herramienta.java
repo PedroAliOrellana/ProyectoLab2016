@@ -3,61 +3,54 @@ package Modelo;
 
 public class Herramienta
 {
-    private String Codigo;
-    private String Descripcion;
+    private String CodigoHerramienta;
+    private String DescHerramienrta;
     private String Marca;
-    private String CodTRecurso;
 
-    public Herramienta(String Codigo, String Descripcion, String Marca, String CodTRecurso) 
+    public Herramienta(String CodigoHerramienta, String DescHerramienrta, String Marca)
     {
-        this.Codigo = Codigo;
-        this.Descripcion = Descripcion;
+        this.CodigoHerramienta = CodigoHerramienta;
+        this.DescHerramienrta = DescHerramienrta;
         this.Marca = Marca;
-        this.CodTRecurso = CodTRecurso;
     }
-
-        public Herramienta() 
+     public Herramienta()
     {
-        this.Codigo = "";
-        this.Descripcion = "";
-        this.Marca = "";
-        this.CodTRecurso = "";
+        CodigoHerramienta = "";
+        DescHerramienrta = "";
+        Marca = "";
+    }
+    
+
+    public String getCodigoHerramienta()
+    {
+        return CodigoHerramienta;
     }
 
-    public String getCodigo() {
-        return Codigo;
+    public void setCodigoHerramienta(String CodigoHerramienta)
+    {
+        this.CodigoHerramienta = CodigoHerramienta;
     }
 
-    public void setCodigo(String Codigo) {
-        this.Codigo = Codigo;
+    public String getDescHerramienrta() 
+    {
+        return DescHerramienrta;
     }
 
-    public String getDescripcion() {
-        return Descripcion;
+    public void setDescHerramienrta(String DescHerramienrta)
+    {
+        this.DescHerramienrta = DescHerramienrta;
     }
 
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
-    }
-
-    public String getMarca() {
+    public String getMarca() 
+    {
         return Marca;
     }
 
-    public void setMarca(String Marca) {
+    public void setMarca(String Marca)
+    {
         this.Marca = Marca;
     }
-
-    public String getCodTRecurso() {
-        return CodTRecurso;
-    }
-
-    public void setCodTRecurso(String CodTRecurso) {
-        this.CodTRecurso = CodTRecurso;
-    }
-
-
-   
+    
     
     
 }
