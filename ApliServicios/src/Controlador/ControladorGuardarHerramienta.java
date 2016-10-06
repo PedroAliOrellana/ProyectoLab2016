@@ -130,7 +130,7 @@ public class ControladorGuardarHerramienta implements ActionListener
     }
    private void CargarDatos(int p)
     {
-        Herramienta e = ListaHerramienta.getListaHerramientas().get(p);
+        Herramienta e = ListaHerramienta.getListaHerramienta().get(p);
         formHerramienta.getTxtCodHerramienta().setEnabled(false);
         formHerramienta.getBtnModificar().setEnabled(true);
         formHerramienta.getTxtDescHerramienta().setText(e.getDescHerramienrta());
@@ -207,7 +207,7 @@ public class ControladorGuardarHerramienta implements ActionListener
                                       formHerramienta.getTxtDescHerramienta().getText(),
                                       formHerramienta.getTxtMarca().getText());
                       
-               ListaHerramienta.getListaHerramientas().add(herramienta);
+               ListaHerramienta.getListaHerramienta().add(herramienta);
              
                 JOptionPane.showMessageDialog(null," Guardado Correctamente","Datos almacenados",JOptionPane.OK_OPTION+JOptionPane.INFORMATION_MESSAGE);
                 DeshabilitarControles();
@@ -215,8 +215,8 @@ public class ControladorGuardarHerramienta implements ActionListener
             }
             else
             {               
-                ListaHerramienta.getListaHerramientas().get(posi).setDescHerramienrta(formHerramienta.getTxtDescHerramienta().getText());
-                ListaHerramienta.getListaHerramientas().get(posi).setMarca(formHerramienta.getTxtMarca().getText());
+                ListaHerramienta.getListaHerramienta().get(posi).setDescHerramienrta(formHerramienta.getTxtDescHerramienta().getText());
+                ListaHerramienta.getListaHerramienta().get(posi).setMarca(formHerramienta.getTxtMarca().getText());
                 JOptionPane.showMessageDialog(null,"Datos Actualizados Correctamente","Información Actualizada",JOptionPane.OK_OPTION+JOptionPane.INFORMATION_MESSAGE);
                 DeshabilitarControles();
                 Limpiar(); 

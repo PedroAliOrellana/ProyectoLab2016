@@ -638,13 +638,11 @@ public class Lista
               
               switch (Cnt)
               {
-                  case 1:her.setCodigo(linea);
+                  case 1:her.setCodigoHerramienta(linea);
                         break;
-                  case 2:her.setDescripcion(linea);
+                  case 2:her.setDescHerramienrta(linea);
                         break;
                   case 3:her.setMarca(linea);
-                        break;
-                  case 4:her.setCodTRecurso(linea);
                         ListaHerramienta.add(her);
                         her=new Herramienta();//regresar        
                         Cnt=0;
@@ -928,7 +926,7 @@ public class Lista
   for (Posi=0;Posi< ListaHerramienta.size();Posi++)
      {
      her=ListaHerramienta.get(Posi);
-     codLista=her.getCodigo();
+     codLista=her.getCodigoHerramienta();
      
      if (codLista.equals(cod))
         return Posi;
