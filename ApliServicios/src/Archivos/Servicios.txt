@@ -1,8 +1,8 @@
-01
+00001
 Alquiler de Herramientas
-02
+00002
 Alquiler de Maquinaria
-03
+00003
 Personal Transporte
-04
+00004
 Personal de Trabajo
