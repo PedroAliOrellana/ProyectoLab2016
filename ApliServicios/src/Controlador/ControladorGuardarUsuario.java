@@ -38,8 +38,6 @@ public class ControladorGuardarUsuario implements ActionListener
               {     
                 ValidarTxt(e,14,formUsuario.getTxtNombreUsuario().getText()); 
                 ValidarSoloLetras(e);
-                
-
                }
                  
             @Override
@@ -181,8 +179,6 @@ public class ControladorGuardarUsuario implements ActionListener
         if (e.getKeyChar()==10)
             txt=true;
    }
-    
-    
     
     private Boolean Verificar()
     {
