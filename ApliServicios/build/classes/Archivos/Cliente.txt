@@ -1,12 +1,15 @@
-J-12345678
+12345678
 Empresa 1
-0987776
 lara
-J-23456789
+0987776
+aaaaaaaaa@ggg
+23456789
 Empresa 2
-087654
 yaracuy
-V-13456789
+093387776
+aarrraaaaa@ggg
+13456789
 Empresa 3
-054321
 maracay
+09333336
+aempresa3aaaa@ggg

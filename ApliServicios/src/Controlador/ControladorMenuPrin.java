@@ -26,7 +26,7 @@ public class ControladorMenuPrin implements ActionListener
         lisEmpreServicios.cargarMaquinaria();
         lisEmpreServicios.cargarVehiculo();
         lisEmpreServicios.cargarTipoRecurso();
-        lisEmpreServicios.cargarHerramienta();
+        //lisEmpreServicios.cargarHerramienta();
         
         formMenuPrin = new JFrameMenuPrin();
         formMenuPrin.agregarListener(this);
@@ -45,6 +45,7 @@ public class ControladorMenuPrin implements ActionListener
       //-------------------------------------
       if (e.getSource().equals(formMenuPrin.getjMenuItemCliente()))  
       {
+          new  ControladorCliente(lisEmpreServicios);
          System.out.println("Esta en cliente"); 
       } 
       //-------------------------------------
