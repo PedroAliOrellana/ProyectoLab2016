@@ -75,7 +75,7 @@ public class ControladorMenuPrin implements ActionListener
        }
        if(e.getSource().equals(formMenuPrin.getjMenuItemHerramienta()))
        {
-            new ControladorHerramienta(lisEmpreServicios);
+            new ControladorGuardarHerramienta(lisEmpreServicios);
        }
     }
 

@@ -3,12 +3,12 @@ package Controlador;
 
 import Modelo.Lista;
 
-import Vista.JFrameHerramienta;
+import Vista.JFrameGuardarHerramienta;
 import java.awt.event.ActionListener;
 
 public class ControladorHerramienta
 {
-    private JFrameHerramienta formHerramienta; 
+    private JFrameGuardarHerramienta formHerramienta; 
     private Lista ListaHerramienta;  
 
     
@@ -16,7 +16,7 @@ public class ControladorHerramienta
     public ControladorHerramienta(Lista listHer)
     {
        ListaHerramienta= listHer;
-        formHerramienta = new JFrameHerramienta();
+        formHerramienta = new JFrameGuardarHerramienta();
         formHerramienta.agregarListener((ActionListener) this);
         formHerramienta.setVisible(true);
         //DeshabilitarControles();
