@@ -5,8 +5,9 @@ import Modelo.Lista;
 
 import Vista.JFrameHerramienta;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 
-public class ControladorHerramienta
+public class ControladorHerramienta implements ActionListener,KeyListener
 {
     private JFrameHerramienta formHerramienta; 
     private Lista ListaHerramienta;  
@@ -17,7 +18,7 @@ public class ControladorHerramienta
     {
        ListaHerramienta= listHer;
         formHerramienta = new JFrameHerramienta();
-        formHerramienta.agregarListener((ActionListener) this);
+        formHerramienta.agregarListener(this);
         formHerramienta.setVisible(true);
         //DeshabilitarControles();
     }
