@@ -180,8 +180,9 @@ public class Lista
                          
                   case 3:cliente.setDireccion(linea);
                          break;
-                       
                   case 4:cliente.setTelefono(linea);
+                         break;  
+                  case 5:cliente.setCorreo(linea);
                          ListaCliente.add(cliente);
                          cliente=new Cliente();//resetear                         
                          Cnt=0;
@@ -809,7 +810,7 @@ public class Lista
     }
       
   //---------------------------------
-     public int BuscarCliente(String rs) 
+     public int BuscarCliente(String r) 
     {
       Integer Posi;
       Cliente cli= new Cliente();
@@ -817,9 +818,9 @@ public class Lista
   for (Posi=0;Posi< ListaCliente.size();Posi++)
      {
      cli=ListaCliente.get(Posi);
-     rsLista=cli.getRazonSocial();
+     rsLista=cli.getRif();
      
-     if (rsLista.equals(rs))
+     if (rsLista.equals(r))
         return Posi;
      }
    return -1;
