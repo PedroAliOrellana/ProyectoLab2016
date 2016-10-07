@@ -19,9 +19,9 @@ public class ControladorServicio implements ActionListener
      private final Lista ListaServicio;
 
      @SuppressWarnings("LeakingThisInConstructor")
-    public ControladorServicio()
+    public ControladorServicio(Lista ListServicio)
     {
-        ListaServicio= new Lista();
+        ListaServicio= ListServicio;
         formServicio = new JFrameServicio();
         formServicio.agregarListener(this);
         formServicio.setVisible(true);
@@ -140,6 +140,7 @@ public class ControladorServicio implements ActionListener
 { 
     formServicio.getTxtCodServicio().setText("");
     formServicio.getTxtDescServicio().setText("");
+    formServicio.getTxtCodServicio().setEnabled(true);
    
 }
  private void Grabar()

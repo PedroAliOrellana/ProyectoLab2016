@@ -1,6 +1,7 @@
 
 package Controlador;
- import Vista.JFrameHerramienta;
+import Librerias.Validaciones;
+ import Vista.JFrameGuardarHerramienta;
  import Modelo.Lista;
  import Modelo.Herramienta;
  import Modelo. *;
@@ -12,7 +13,7 @@ import javax.swing.JOptionPane;
 
 public class ControladorGuardarHerramienta implements ActionListener
 {
-    private final  JFrameHerramienta formHerramienta;
+    private final  JFrameGuardarHerramienta formHerramienta;
     private final Lista ListaHerramienta;
 
     @SuppressWarnings("LeakingThisInConstructor")
@@ -20,13 +21,10 @@ public class ControladorGuardarHerramienta implements ActionListener
     public ControladorGuardarHerramienta(Lista listh)   
     {
         ListaHerramienta = listh;
-        formHerramienta = new JFrameHerramienta();
+        formHerramienta = new JFrameGuardarHerramienta();
         formHerramienta.agregarListener(this);
         formHerramienta.setVisible(true);
-        
-        
-        
-          
+        DeshabilitarControles();   
         formHerramienta.getTxtCodHerramienta().addKeyListener(new KeyAdapter()
       {        
             @Override
@@ -88,7 +86,7 @@ public class ControladorGuardarHerramienta implements ActionListener
             if(Posi==-1)
             {
                 int resp;
-                resp = JOptionPane.showConfirmDialog(null, "El Servicio no esta registrado, ¿Desea registrarlo?","Registro",JOptionPane.YES_NO_OPTION);
+                resp = JOptionPane.showConfirmDialog(null, "La Herramienta no esta registrada, ¿Desea registrarlo?","Registro",JOptionPane.YES_NO_OPTION);
                 if(resp==0)
                 {               
                     ActivarControles();
@@ -111,9 +109,11 @@ public class ControladorGuardarHerramienta implements ActionListener
     {
         formHerramienta.getTxtCodHerramienta().setEditable(false);
         formHerramienta.getTxtDescHerramienta().setEditable(true);
+        formHerramienta.getTxtMarca().setEditable(true);
         formHerramienta.getBtnGrabar().setEnabled(true);
         formHerramienta.getBtnCancelar().setEnabled(true);
-   
+        formHerramienta.getBtnModificar().setEnabled(false);
+        formHerramienta.getBtnEliminar().setEnabled(false);
        
     }
     private void DeshabilitarControles()
@@ -123,10 +123,10 @@ public class ControladorGuardarHerramienta implements ActionListener
         formHerramienta.getBtnGrabar().setEnabled(false);
         formHerramienta.getBtnRegresar().setVisible(true);
         formHerramienta.getTxtCodHerramienta().setEditable(true);
-        formHerramienta.getTxtDescHerramienta().setEditable(false);
         formHerramienta.getTxtMarca().setEditable(false);
         formHerramienta.getTxtCodHerramienta().requestFocusInWindow();
-        
+        formHerramienta.getBtnEliminar().setEnabled(false);
+        formHerramienta.getBtnModificar().setEnabled(false);
     }
    private void CargarDatos(int p)
     {
@@ -135,6 +135,7 @@ public class ControladorGuardarHerramienta implements ActionListener
         formHerramienta.getBtnModificar().setEnabled(true);
         formHerramienta.getTxtDescHerramienta().setText(e.getDescHerramienrta());
         formHerramienta.getTxtMarca().setText(e.getMarca());
+        formHerramienta.getBtnEliminar().setEnabled(true);
         
     }
     
@@ -172,17 +173,27 @@ public class ControladorGuardarHerramienta implements ActionListener
  }
       private Boolean Verificar()
     {
-        JFrameHerramienta e = formHerramienta;
+      Herramienta herramienta;
+      String Cadena, Descripcion, Marca;
+              
+        JFrameGuardarHerramienta e = formHerramienta;
         if(e.getTxtDescHerramienta().getText().length()==0)
         {
-            JOptionPane.showMessageDialog(null, "la direccion  esta en blanco","Atención",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La descripcion esta en blanco","Atención",JOptionPane.WARNING_MESSAGE);
             formHerramienta.getTxtDescHerramienta().requestFocusInWindow();
             return false;
         }
-        
+       Cadena=formHerramienta.getTxtMarca().getText().trim(); 
+         if (Cadena.length()==0)
+     {
+       Validaciones.Aviso("Indique la Marca", "");   
+       formHerramienta.getTxtMarca().requestFocusInWindow();
+       return false;
+     }  
     
-          return true;
+    return true;
     }
+      
     
     //-----------------------Botonee-------------------------
         private void Limpiar()
@@ -204,8 +215,8 @@ public class ControladorGuardarHerramienta implements ActionListener
             if(posi==-1)
             {
                herramienta= new Herramienta(formHerramienta.getTxtCodHerramienta().getText(),
-                                      formHerramienta.getTxtDescHerramienta().getText(),
-                                      formHerramienta.getTxtMarca().getText());
+                                            formHerramienta.getTxtDescHerramienta().getText(),
+                                            formHerramienta.getTxtMarca().getText());
                       
                ListaHerramienta.getListaHerramienta().add(herramienta);
              
@@ -222,7 +233,22 @@ public class ControladorGuardarHerramienta implements ActionListener
                 Limpiar(); 
             }
         }     
-       }
+       }    //-------------Eliminar----------------------
+     private void Eliminar()
+    {
+        int resp,posi;
+        resp = JOptionPane.showConfirmDialog(null, "¿Desea Eliminar Herramienta: " + formHerramienta.getTxtCodHerramienta().getText()+"?","Eliminar",JOptionPane.YES_NO_OPTION);
+        if(resp==0)
+        {               
+            posi = ListaHerramienta.BuscarHerramienta(formHerramienta.getTxtCodHerramienta().getText());
+            ListaHerramienta.getListaHerramienta().remove(posi);
+            Limpiar();
+            JOptionPane.showMessageDialog(null, "Vehiculo eliminado");
+            DeshabilitarControles();            
+        }
+    }  
+       
+       
    
     @Override
     public void actionPerformed(ActionEvent e)
@@ -233,6 +259,7 @@ public class ControladorGuardarHerramienta implements ActionListener
         Limpiar();  
         formHerramienta.getTxtCodHerramienta().setEditable(true);
         formHerramienta.getTxtDescHerramienta().setEditable(false);
+        formHerramienta.getTxtMarca().setEditable(false);
       }
            if (e.getSource().equals(formHerramienta.getBtnRegresar()))  
       {  
@@ -242,6 +269,10 @@ public class ControladorGuardarHerramienta implements ActionListener
       {  
         Grabar();
       }
+                if(e.getSource().equals(formHerramienta.getBtnEliminar()))
+      {
+            Eliminar();
+      }
                if(e.getSource().equals(formHerramienta.getBtnModificar()))
         {
             formHerramienta.getBtnGrabar().setEnabled(true);
@@ -249,6 +280,8 @@ public class ControladorGuardarHerramienta implements ActionListener
             ActivarControles();
             formHerramienta.getTxtCodHerramienta().setEditable(false);
             formHerramienta.getBtnModificar().setEnabled(false);
+            formHerramienta.getTxtMarca().setEditable(true);
+            formHerramienta.getBtnEliminar().setEnabled(false);
         }
     }
     

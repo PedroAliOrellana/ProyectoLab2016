@@ -107,6 +107,7 @@ public class ControladorGuardarVehiculo implements ActionListener,KeyListener
             formVehiculo.getTxtCapacidad().setEditable(false);
             formVehiculo.getTxtModelo().setEditable(false);
             formVehiculo.getTxtPlaca().requestFocusInWindow();
+             formVehiculo.getBtnEliminar().setEnabled(false);
     }
       private void ActivarControles()
     {
@@ -116,6 +117,7 @@ public class ControladorGuardarVehiculo implements ActionListener,KeyListener
         formVehiculo.getTxtModelo().setEditable(true);
         formVehiculo.getBtnGrabar().setEnabled(true);
         formVehiculo.getBtnCancelar1().setEnabled(true);
+       
     }
    //---------------------------------
      private void CargarDatos(int p)
@@ -124,6 +126,7 @@ public class ControladorGuardarVehiculo implements ActionListener,KeyListener
         
         formVehiculo.getTxtPlaca().setEditable(false);
         formVehiculo.getBtnModificar().setEnabled(true);
+        formVehiculo.getBtnEliminar().setEnabled(true);
         formVehiculo.getTxtMarca().setText(e.getMarca());
         formVehiculo.getTxtCapacidad().setText(e.getCapacidad());
         formVehiculo.getTxtModelo().setText(e.getModelo());
@@ -139,7 +142,7 @@ public class ControladorGuardarVehiculo implements ActionListener,KeyListener
   formVehiculo.getTxtPlaca().setEditable(true);
   formVehiculo.getBtnModificar().setEnabled(false);
   formVehiculo.getTxtPlaca().requestFocusInWindow();
-  
+   formVehiculo.getBtnEliminar().setEnabled(false);
   
 }
   //-----------TxtCedulaEventoEnter-----------
@@ -251,6 +254,20 @@ public class ControladorGuardarVehiculo implements ActionListener,KeyListener
             }
         }        
     }
+    //-------------Eliminar----------------------
+     private void Eliminar()
+    {
+        int resp,posi;
+        resp = JOptionPane.showConfirmDialog(null, "¿Desea Eliminar Vehiculo: " + formVehiculo.getTxtPlaca().getText()+"?","Eliminar",JOptionPane.YES_NO_OPTION);
+        if(resp==0)
+        {               
+            posi = ListaVehiculo.BuscarVehiculo(formVehiculo.getTxtPlaca().getText());
+            ListaVehiculo.getListaVehiculo().remove(posi);
+            Limpiar();
+            JOptionPane.showMessageDialog(null, "Vehiculo eliminado");
+            DeshabilitarControles();            
+        }
+    }  
      //-----------Validaciones---------------------
     
     private void ValidarTxt(KeyEvent e,int largo,String txt) 
@@ -298,6 +315,10 @@ public class ControladorGuardarVehiculo implements ActionListener,KeyListener
         if (e.getSource().equals(formVehiculo.getBtnGrabar()))  
       {  
         Grabar();
+      }
+        if(e.getSource().equals(formVehiculo.getBtnEliminar()))
+      {
+            Eliminar();
       }
         if(e.getSource().equals(formVehiculo.getBtnModificar()))
       {
