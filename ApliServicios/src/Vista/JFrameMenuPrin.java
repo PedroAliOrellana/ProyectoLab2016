@@ -37,6 +37,7 @@ public class JFrameMenuPrin extends javax.swing.JFrame {
         jMenuItemVehiculo = new javax.swing.JMenuItem();
         jMenuItemHerramienta = new javax.swing.JMenuItem();
         jMenuItemMotivo = new javax.swing.JMenuItem();
+        jMenuItemMaquinaria = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -89,6 +90,9 @@ public class JFrameMenuPrin extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItemMotivo);
 
+        jMenuItemMaquinaria.setText("Maquinaria");
+        jMenu1.add(jMenuItemMaquinaria);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Movimientos");
@@ -140,6 +144,10 @@ public JMenuItem getjMenuItemObras()
 }
 //------------------------
 
+    public JMenuItem getjMenuItemMaquinaria() {
+        return jMenuItemMaquinaria;
+    }
+
 
 //-------------------------------
     public JMenuItem getjMenuItemServicio() {
@@ -187,6 +195,7 @@ public void agregarListener (ActionListener accion)
     this.jMenuItemMotivo.addActionListener(accion);
     this.jMenuItemHerramienta.addActionListener(accion);
     this.jMenuItemVehiculo.addActionListener(accion);
+    jMenuItemMaquinaria.addActionListener(accion);
 }    
 
  
@@ -203,6 +212,7 @@ public void agregarListener (ActionListener accion)
     private javax.swing.JMenuItem jMenuItemCliente;
     private javax.swing.JMenuItem jMenuItemEmpleado;
     private javax.swing.JMenuItem jMenuItemHerramienta;
+    private javax.swing.JMenuItem jMenuItemMaquinaria;
     private javax.swing.JMenuItem jMenuItemMotivo;
     private javax.swing.JMenuItem jMenuItemObras;
     private javax.swing.JMenuItem jMenuItemRecursos;

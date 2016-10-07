@@ -10,12 +10,12 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 
-public class controladorGuardarCliente implements ActionListener
+public class ControladorGuardarCliente implements ActionListener
 {
     private JFrameGuardaCliente  formGuardarCliente;
     private Lista  ListaCliente;
     
-    public controladorGuardarCliente()
+    public ControladorGuardarCliente()
     {
         ListaCliente =new Lista();
         formGuardarCliente = new JFrameGuardaCliente();

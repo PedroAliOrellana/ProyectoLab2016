@@ -1,6 +1,5 @@
 
 package Controlador;
-import Controlador.controladorGuardarCliente;
 import Modelo.Cliente;
 import Modelo.Lista;
 import Vista.JFrameCliente;
@@ -117,7 +116,7 @@ public class ControladorCliente implements ActionListener,KeyListener
     {
            if (e.getSource().equals(formCliente.getBntNuevoCliente()))  
       {  
-          new controladorGuardarCliente(ListaCliente );
+          new ControladorGuardarCliente( );
           formCliente.dispose();
       }   
         if (e.getSource().equals(formCliente.getBntRegresar()))  
@@ -127,7 +126,7 @@ public class ControladorCliente implements ActionListener,KeyListener
         if (e.getSource().equals(formCliente.getBntModificar()))  
       {  
         
-          new controladorGuardarCliente(ListaCliente);
+          new ControladorGuardarCliente();
          // CargarModificar();
         
       }
