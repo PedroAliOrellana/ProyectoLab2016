@@ -48,6 +48,11 @@ public class JFrameUsuario extends javax.swing.JFrame {
         return btnRegresar;
     }
 
+    public JComboBox<String> getCmbBuscarpor() 
+    {
+        return cmbBuscarpor;
+    }
+
     public JTextField getTxtBuscar()
     {
         return txtBuscar;
@@ -79,6 +84,7 @@ public class JFrameUsuario extends javax.swing.JFrame {
         lblBuscar = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
+        cmbBuscarpor = new javax.swing.JComboBox<>();
         btnRegresar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
         btnBorrar = new javax.swing.JButton();
@@ -106,15 +112,7 @@ public class JFrameUsuario extends javax.swing.JFrame {
             new String [] {
                 "Nombre Usuario", "Nivel acceso"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         TUsuario.setSelectionBackground(new java.awt.Color(0, 204, 153));
         jScrollPane1.setViewportView(TUsuario);
 
@@ -124,6 +122,9 @@ public class JFrameUsuario extends javax.swing.JFrame {
         txtBuscar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         btnBuscar.setText("Buscar");
+
+        cmbBuscarpor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbBuscarpor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre Usuario", "Nivel Acceso" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,10 +137,11 @@ public class JFrameUsuario extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbBuscarpor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBuscar)
-                        .addGap(122, 122, 122)))
+                        .addComponent(btnBuscar)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -149,7 +151,8 @@ public class JFrameUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBuscar)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
+                    .addComponent(btnBuscar)
+                    .addComponent(cmbBuscarpor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
@@ -236,6 +239,7 @@ public class JFrameUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JComboBox<String> cmbBuscarpor;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBuscar;
